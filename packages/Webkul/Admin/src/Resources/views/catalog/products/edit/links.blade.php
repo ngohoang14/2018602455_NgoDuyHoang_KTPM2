@@ -1,5 +1,5 @@
 {!! view_render_event('bagisto.admin.catalog.product.edit.form.links.before', ['product' => $product]) !!}
-    
+
 <v-product-links></v-product-links>
 
 {!! view_render_event('bagisto.admin.catalog.product.edit.form.links.after', ['product' => $product]) !!}
@@ -29,7 +29,7 @@
                         >
                         </p>
                     </div>
-                    
+
                     <!-- Add Button -->
                     <div class="flex gap-x-1 items-center">
                         <div
@@ -66,12 +66,12 @@
                             >
                                 <template v-if="! product.images.length">
                                     <img src="{{ bagisto_asset('images/product-placeholders/front.svg') }}">
-                                
+
                                     <p class="w-full absolute bottom-1.5 text-[6px] text-gray-400 text-center font-semibold">
                                         @lang('admin::app.catalog.products.edit.links.image-placeholder')
                                     </p>
                                 </template>
-            
+
                                 <template v-else>
                                     <img :src="product.images[0].url">
                                 </template>
@@ -94,7 +94,7 @@
                         <!-- Actions -->
                         <div class="grid gap-1 place-content-start text-right">
                             <p class="text-gray-800 font-semibold dark:text-white">
-                                @{{ $admin.formatPrice(product.price) }}    
+                                @{{ (Math.floor(product.price)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) }}
                             </p>
 
                             <p

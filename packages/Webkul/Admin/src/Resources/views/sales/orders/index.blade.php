@@ -22,7 +22,7 @@
                 <div class="row grid grid-cols-[0.5fr_0.5fr_1fr] grid-rows-1 items-center px-4 py-2.5 border-b dark:border-gray-800">
                     <div
                         class="flex gap-2.5 items-center select-none"
-                        v-for="(columnGroup, index) in [['increment_id', 'created_at', 'status'], ['base_grand_total', 'method', 'channel_name'], ['full_name', 'customer_email', 'location', 'image']]"
+                        v-for="(columnGroup, index) in [['increment_id', 'created_at', 'status'], ['base_grand_total', 'method'], ['full_name', 'customer_email', 'location', 'image']]"
                     >
                         <p class="text-gray-600 dark:text-gray-300">
                             <span class="[&>*]:after:content-['_/_']">
@@ -99,18 +99,17 @@
                     <div class="">
                         <div class="flex flex-col gap-1.5">
                             <p class="text-base text-gray-800 dark:text-white font-semibold">
-                                @{{ $admin.formatPrice(record.base_grand_total) }}
+                                @{{ (Math.floor(record.base_grand_total)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) }}
                             </p>
-
                             <p class="text-gray-600 dark:text-gray-300">
                                 @lang('admin::app.sales.orders.index.datagrid.pay-by', ['method' => ''])@{{ record.method }}
                             </p>
 
-                            <p
-                                class="text-gray-600 dark:text-gray-300"
-                                v-text="record.channel_name"
-                            >
-                            </p>
+{{--                            <p--}}
+{{--                                class="text-gray-600 dark:text-gray-300"--}}
+{{--                                v-text="record.channel_name"--}}
+{{--                            >--}}
+{{--                            </p>--}}
                         </div>
                     </div>
 

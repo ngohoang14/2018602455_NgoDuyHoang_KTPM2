@@ -569,6 +569,8 @@ class Core
             $price = 0;
         }
 
+        return number_format($price, 0, '.', '.') . ' ' . $this->getBaseCurrency()->symbol;
+
         $currency = $currencyCode
             ? $this->getAllCurrencies()->where('code', $currencyCode)->first()
             : $this->getCurrentCurrency();
@@ -608,21 +610,23 @@ class Core
             $price = 0;
         }
 
-        $formatter = new \NumberFormatter(app()->getLocale(), \NumberFormatter::CURRENCY);
+        return number_format($price, 0, '.', '.') . ' ' . $this->getBaseCurrency()->symbol;
 
-        if ($symbol = $this->getBaseCurrency()->symbol) {
-            if ($this->currencySymbol($this->getBaseCurrencyCode()) == $symbol) {
-                $content = $formatter->formatCurrency($price, $this->getBaseCurrencyCode());
-            } else {
-                $formatter->setSymbol(\NumberFormatter::CURRENCY_SYMBOL, $symbol);
-
-                $content = $formatter->format($this->convertPrice($price));
-            }
-        } else {
-            $content = $formatter->formatCurrency($price, $this->getBaseCurrencyCode());
-        }
-
-        return ! $isEncoded ? $content : htmlentities($content);
+        // $formatter = new \NumberFormatter(app()->getLocale(), \NumberFormatter::CURRENCY);
+        //
+        // if ($symbol = $this->getBaseCurrency()->symbol) {
+        //     if ($this->currencySymbol($this->getBaseCurrencyCode()) == $symbol) {
+        //         $content = $formatter->formatCurrency($price, $this->getBaseCurrencyCode());
+        //     } else {
+        //         $formatter->setSymbol(\NumberFormatter::CURRENCY_SYMBOL, $symbol);
+        //
+        //         $content = $formatter->format($this->convertPrice($price));
+        //     }
+        // } else {
+        //     $content = $formatter->formatCurrency($price, $this->getBaseCurrencyCode());
+        // }
+        //
+        // return ! $isEncoded ? $content : htmlentities($content);
     }
 
     /**

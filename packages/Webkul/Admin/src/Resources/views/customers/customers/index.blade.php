@@ -36,7 +36,7 @@
     {!! view_render_event('bagisto.admin.customers.customers.list.before') !!}
 
     <x-admin::datagrid src="{{ route('admin.customers.customers.index') }}" ref="customer_data" :isMultiRow="true">
-        @php 
+        @php
             $hasPermission = bouncer()->hasPermission('customers.customers.edit') || bouncer()->hasPermission('customers.customers.delete');
         @endphp
 
@@ -193,7 +193,7 @@
                         <div class="flex flex-col gap-1.5">
                             <p
                                 class="text-base text-gray-800 dark:text-white font-semibold"
-                                v-text="$admin.formatPrice(record.revenue)"
+                                v-text="(Math.floor(record.revenue)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })"
                             >
                             </p>
 
@@ -402,12 +402,12 @@
                                             :label="trans('admin::app.customers.customers.index.create.customer-group')"
                                             ::value="groups[0]?.id"
                                         >
-                                            <option 
-                                                v-for="group in groups" 
+                                            <option
+                                                v-for="group in groups"
                                                 :value="group.id"
                                                 selected
-                                            > 
-                                                @{{ group.name }} 
+                                            >
+                                                @{{ group.name }}
                                             </option>
                                         </x-admin::form.control-group.control>
 

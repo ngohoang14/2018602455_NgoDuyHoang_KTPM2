@@ -21,7 +21,7 @@
                         @lang('admin::app.catalog.products.edit.types.grouped.info')
                     </p>
                 </div>
-                
+
                 <!-- Add Button -->
                 <div class="flex gap-x-1 items-center">
                     <div
@@ -52,7 +52,7 @@
                             <div class="flex gap-2.5">
                                 <!-- Drag Icon -->
                                 <i class="icon-drag text-xl text-gray-600 dark:text-gray-300 transition-all cursor-grab"></i>
-                                
+
                                 <!-- Image -->
                                 <div
                                     class="w-full h-[60px] max-w-[60px] max-h-[60px] relative rounded overflow-hidden"
@@ -60,7 +60,7 @@
                                 >
                                     <template v-if="! element.associated_product.images.length">
                                         <img src="{{ bagisto_asset('images/product-placeholders/front.svg') }}">
-                                    
+
                                         <p class="w-full absolute bottom-1.5 text-[6px] text-gray-400 text-center font-semibold">
                                             @lang('admin::app.catalog.products.edit.types.grouped.image-placeholder')
                                         </p>
@@ -86,17 +86,17 @@
                             <!-- Actions -->
                             <div class="grid gap-1 place-content-start text-right">
                                 <p class="text-gray-800 font-semibold dark:text-white">
-                                    @{{ $admin.formatPrice(element.associated_product.price) }}    
+                                    @{{ (Math.floor(element.associated_product.price)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) }}
                                 </p>
 
-                                
+
                                 <!-- Hidden Input -->
                                 <input
                                     type="hidden"
                                     :name="'links[' + (element.id ? element.id : 'link_' + index) + '][associated_product_id]'"
                                     :value="element.associated_product.id"
                                 />
-                                
+
                                 <input
                                     type="hidden"
                                     :name="'links[' + (element.id ? element.id : 'link_' + index) + '][sort_order]'"
@@ -164,7 +164,7 @@
                         @lang('admin::app.catalog.products.edit.types.grouped.empty-info')
                     </p>
                 </div>
-                
+
                 <!-- Add Row Button -->
                 <div
                     class="secondary-button text-sm"

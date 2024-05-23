@@ -30,7 +30,7 @@
                         @lang('admin::app.catalog.products.edit.types.bundle.info')
                     </p>
                 </div>
-                
+
                 <!-- Add Button -->
                 <div class="flex gap-x-1 items-center">
                     <div
@@ -104,7 +104,7 @@
                                 @lang('admin::app.catalog.products.edit.types.bundle.update-create.title')
                             </p>
                         </x-slot>
-        
+
                         <!-- Modal Content -->
                         <x-slot:content>
                             <x-admin::form.control-group>
@@ -119,7 +119,7 @@
                                     v-model="selectedOption.label"
                                     :label="trans('admin::app.catalog.products.edit.types.bundle.update-create.name')"
                                 />
-        
+
                                 <x-admin::form.control-group.error control-name="label" />
                             </x-admin::form.control-group>
 
@@ -152,7 +152,7 @@
                                             @lang('admin::app.catalog.products.edit.types.bundle.update-create.multiselect')
                                         </option>
                                     </x-admin::form.control-group.control>
-        
+
                                     <x-admin::form.control-group.error control-name="type" />
                                 </x-admin::form.control-group>
 
@@ -176,17 +176,17 @@
                                             @lang('admin::app.catalog.products.edit.types.bundle.update-create.no')
                                         </option>
                                     </x-admin::form.control-group.control>
-        
+
                                     <x-admin::form.control-group.error control-name="is_required" />
                                 </x-admin::form.control-group>
                             </div>
                         </x-slot>
-        
+
                         <!-- Modal Footer -->
                         <x-slot:footer>
                             <!-- Modal Submission -->
                             <div class="flex gap-x-2.5 items-center">
-                                <button 
+                                <button
                                     type="submit"
                                     class="primary-button"
                                 >
@@ -242,7 +242,7 @@
                         @{{ types[option.type].info }}
                     </p>
                 </div>
-                
+
                 <!-- Add Button -->
                 <div class="flex gap-x-5 items-center">
                     <p
@@ -309,7 +309,7 @@
                                     >
                                     </label>
                                 </div>
-                                
+
                                 <!-- Image -->
                                 <div
                                     class="w-full h-[60px] max-w-[60px] max-h-[60px] relative rounded overflow-hidden"
@@ -317,12 +317,12 @@
                                 >
                                     <template v-if="! element.product.images.length">
                                         <img src="{{ bagisto_asset('images/product-placeholders/front.svg') }}">
-                                    
+
                                         <p class="w-full absolute bottom-1.5 text-[6px] text-gray-400 text-center font-semibold">
                                             @lang('admin::app.catalog.products.edit.types.bundle.image-placeholder')
                                         </p>
                                     </template>
-                
+
                                     <template v-else>
                                         <img :src="element.product.images[0].url">
                                     </template>
@@ -343,16 +343,16 @@
                             <!-- Actions -->
                             <div class="grid gap-1 place-content-start text-right">
                                 <p class="text-gray-800 font-semibold dark:text-white">
-                                    @{{ $admin.formatPrice(element.product.price) }}    
+                                    @{{ (Math.floor(element.product.price)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) }}
                                 </p>
-                                
+
                                 <!-- Hidden Input -->
                                 <input
                                     type="hidden"
                                     :name="'bundle_options[' + option.id + '][products][' + element.id + '][product_id]'"
                                     :value="element.product.id"
                                 />
-                                
+
                                 <input
                                     type="hidden"
                                     :name="'bundle_options[' + option.id + '][products][' + element.id + '][sort_order]'"

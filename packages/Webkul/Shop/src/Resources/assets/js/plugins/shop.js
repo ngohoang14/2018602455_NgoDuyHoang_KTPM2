@@ -3,19 +3,19 @@ export default {
         app.config.globalProperties.$shop = {
             /**
              * Load the dynamic scripts
-             * 
-             * @param {string} src 
-             * @param {callback} onScriptLoaded 
-             * 
+             *
+             * @param {string} src
+             * @param {callback} onScriptLoaded
+             *
              * @returns {void}.
              */
             loadDynamicScript: (src, onScriptLoaded) => {
                 let dynamicScript = document.createElement('script');
-            
+
                 dynamicScript.setAttribute('src', src);
 
                 document.body.appendChild(dynamicScript);
-            
+
                 dynamicScript.addEventListener('load', onScriptLoaded, false);
             },
 

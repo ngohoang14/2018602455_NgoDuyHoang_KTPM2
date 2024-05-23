@@ -61,7 +61,7 @@
 
                         <!-- Amount -->
                         <p class="break-words">
-                            @{{ $admin.formatPrice(record.amount) }}
+                            @{{ (Math.floor(record.amount)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) }}
                         </p>
 
                         <!-- Invoice Id -->
@@ -217,7 +217,7 @@
             </div>
         </script>
 
-        <script 
+        <script
             type="text/x-template"
             id="v-create-transaction-form-template"
         >
@@ -278,7 +278,7 @@
                                         :label="trans('admin::app.sales.transactions.index.create.payment-method')"
                                         :placeholder="trans('admin::app.sales.transactions.index.create.payment-method')"
                                     >
-                                        <option 
+                                        <option
                                             v-for="paymentMethod in paymentMethods"
                                             :value="paymentMethod.method"
                                             v-text="paymentMethod.method_title"

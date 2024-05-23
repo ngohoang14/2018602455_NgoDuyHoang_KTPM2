@@ -183,7 +183,7 @@
                         <div class="flex flex-col gap-1.5">
                             <p
                                 class="text-base text-gray-800 dark:text-white font-semibold"
-                                v-text="$admin.formatPrice(record.price)"
+                                v-text="(Math.floor(record.price)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })"
                             >
                             </p>
 
@@ -244,7 +244,7 @@
                             <a :href=`{{ route('admin.catalog.products.copy', '') }}/${record.product_id}`>
                                 <span class="icon-copy text-2xl ltr:ml-1 rtl:mr-1 p-1.5 rounded-md cursor-pointer transition-all hover:bg-gray-200 dark:hover:bg-gray-800"></span>
                             </a>
-                            
+
                             <a :href=`{{ route('admin.catalog.products.edit', '') }}/${record.product_id}`>
                                 <span class="icon-sort-right text-2xl ltr:ml-1 rtl:mr-1 p-1.5 rounded-md cursor-pointer transition-all hover:bg-gray-200 dark:hover:bg-gray-800"></span>
                             </a>
