@@ -15,6 +15,7 @@
         <meta name="base-url" content="{{ url()->to('/') }}">
         <meta name="currency-code" content="{{ core()->getCurrentCurrencyCode() }}">
         <meta http-equiv="content-language" content="{{ app()->getLocale() }}">
+
         @stack('meta')
 
         <link
@@ -66,7 +67,7 @@
 
             {!! view_render_event('bagisto.shop.layout.content.after') !!}
 
-
+            
             <!-- Page Services Blade Component -->
             @if ($hasFeature)
                 <x-shop::layouts.services />
@@ -87,8 +88,3 @@
         </script>
     </body>
 </html>
-<style>
-* {
-    font-family: arial, helvetica, sans-serif;
-}
-</style>
