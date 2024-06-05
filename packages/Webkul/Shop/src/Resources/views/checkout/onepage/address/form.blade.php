@@ -131,6 +131,26 @@
             {!! view_render_event('bagisto.shop.checkout.onepage.address.form.address.after') !!}
 
             <div class="grid grid-cols-2 gap-x-5">
+                                <!-- City -->
+                <x-shop::form.control-group>
+                    <x-shop::form.control-group.label class="!mt-0 required">
+                        @lang('shop::app.checkout.onepage.address.city')
+                    </x-shop::form.control-group.label>
+
+                    <x-shop::form.control-group.control
+                        type="text"
+                        ::name="controlName + '.city'"
+                        ::value="address.city"
+                        rules="required"
+                        :label="trans('shop::app.checkout.onepage.address.city')"
+                        :placeholder="trans('shop::app.checkout.onepage.address.city')"
+                    />
+
+                    <x-shop::form.control-group.error ::name="controlName + '.city'" />
+                </x-shop::form.control-group>
+
+                {!! view_render_event('bagisto.shop.checkout.onepage.address.form.city.after') !!}
+
                 <!-- Country -->
                 <x-shop::form.control-group class="!mb-4">
                     <x-shop::form.control-group.label class="{{ core()->isCountryRequired() ? 'required' : '' }} !mt-0">
@@ -210,28 +230,10 @@
 {{--                {!! view_render_event('bagisto.shop.checkout.onepage.address.form.state.after') !!}--}}
             </div>
 
-            <div class="grid grid-cols-2 gap-x-5">
-                <!-- City -->
-                <x-shop::form.control-group>
-                    <x-shop::form.control-group.label class="!mt-0 required">
-                        @lang('shop::app.checkout.onepage.address.city')
-                    </x-shop::form.control-group.label>
+{{--            <div class="grid grid-cols-2 gap-x-5">--}}
 
-                    <x-shop::form.control-group.control
-                        type="text"
-                        ::name="controlName + '.city'"
-                        ::value="address.city"
-                        rules="required"
-                        :label="trans('shop::app.checkout.onepage.address.city')"
-                        :placeholder="trans('shop::app.checkout.onepage.address.city')"
-                    />
 
-                    <x-shop::form.control-group.error ::name="controlName + '.city'" />
-                </x-shop::form.control-group>
-
-                {!! view_render_event('bagisto.shop.checkout.onepage.address.form.city.after') !!}
-
-                <!-- Postcode -->
+{{--                <!-- Postcode -->--}}
 {{--                <x-shop::form.control-group>--}}
 {{--                    <x-shop::form.control-group.label class="{{ core()->isPostCodeRequired() ? 'required' : '' }} !mt-0">--}}
 {{--                        @lang('shop::app.checkout.onepage.address.postcode')--}}
@@ -250,7 +252,7 @@
 {{--                </x-shop::form.control-group>--}}
 
 {{--                {!! view_render_event('bagisto.shop.checkout.onepage.address.form.postcode.after') !!}--}}
-            </div>
+{{--            </div>--}}
 
             <!-- Phone Number -->
             <x-shop::form.control-group>

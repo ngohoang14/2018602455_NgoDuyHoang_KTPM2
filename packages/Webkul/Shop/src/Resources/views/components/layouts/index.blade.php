@@ -67,7 +67,7 @@
 
             {!! view_render_event('bagisto.shop.layout.content.after') !!}
 
-            
+
             <!-- Page Services Blade Component -->
             @if ($hasFeature)
                 <x-shop::layouts.services />
@@ -88,3 +88,8 @@
         </script>
     </body>
 </html>
+<style>
+* {
+    font-family: arial, helvetica, sans-serif;
+}
+</style>

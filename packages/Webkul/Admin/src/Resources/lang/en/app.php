@@ -319,7 +319,7 @@ return [
                 'adjustment-fee'         => 'Adjustment Fee',
                 'adjustment-refund'      => 'Adjustment Refund',
                 'base-discounted-amount' => 'Discounted Amount - :base_discounted_amount',
-                'billing-address'        => 'Billing Address',
+                'billing-address'        => 'Địa chỉ đơn hàng',
                 'currency'               => 'Currency',
                 'discounted-amount'      => 'Sub Total - :discounted_amount',
                 'grand-total'            => 'Grand Total',

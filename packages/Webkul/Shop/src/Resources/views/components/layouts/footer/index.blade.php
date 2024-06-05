@@ -52,12 +52,12 @@
                     role="heading"
                     aria-level="2"
                 >
-                    @lang('shop::app.components.layouts.footer.newsletter-text')
+                    Nhận thông báo khuyến mãi mới nhất
                 </p>
 
-                <p class="text-xs">
-                    @lang('shop::app.components.layouts.footer.subscribe-stay-touch')
-                </p>
+{{--                <p class="text-xs">--}}
+{{--                    @lang('shop::app.components.layouts.footer.subscribe-stay-touch')--}}
+{{--                </p>--}}
 
                 <x-shop::form
                     :action="route('shop.subscription.store')"
@@ -90,15 +90,23 @@
         {!! view_render_event('bagisto.shop.layout.footer.newsletter_subscription.after') !!}
     </div>
 
-    <div class="flex justify-between  px-[60px] py-3.5 bg-[#F1EADF]">
-        {!! view_render_event('bagisto.shop.layout.footer.footer_text.before') !!}
+{{--    <div class="flex justify-between  px-[60px] py-3.5 bg-[#F1EADF]">--}}
+{{--        {!! view_render_event('bagisto.shop.layout.footer.footer_text.before') !!}--}}
 
-        <p class="text-sm text-[#4D4D4D]">
-            @lang('shop::app.components.layouts.footer.footer-text', ['current_year'=> date('Y') ])
-        </p>
+{{--        <p class="text-sm text-[#4D4D4D]">--}}
+{{--            @lang('shop::app.components.layouts.footer.footer-text', ['current_year'=> date('Y') ])--}}
+{{--        </p>--}}
 
-        {!! view_render_event('bagisto.shop.layout.footer.footer_text.after') !!}
-    </div>
+{{--        {!! view_render_event('bagisto.shop.layout.footer.footer_text.after') !!}--}}
+{{--    </div>--}}
 </footer>
 
-{!! view_render_event('bagisto.shop.layout.footer.after') !!}
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+    intent="WELCOME"
+    chat-title="Trợ lí thông minh"
+    agent-id="3380864e-871b-4613-8437-c8086dfc3bef"
+    language-code="vi"
+></df-messenger>
+
+{{--{!! view_render_event('bagisto.shop.layout.footer.after') !!}--}}

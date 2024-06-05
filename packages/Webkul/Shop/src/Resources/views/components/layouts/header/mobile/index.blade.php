@@ -147,7 +147,7 @@
                     height="29"
                 >
             </a>
-            
+
             {!! view_render_event('bagisto.shop.components.layouts.header.mobile.logo.after') !!}
         </div>
 
@@ -287,8 +287,8 @@
 
     <!-- Serach Catalog Form -->
     <form action="{{ route('shop.search.index') }}" class="flex items-center w-full">
-        <label 
-            for="organic-search" 
+        <label
+            for="organic-search"
             class="sr-only"
         >
             @lang('shop::app.components.layouts.header.search')
